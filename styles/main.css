@@ -1,0 +1,292 @@
+@import "../../../node_modules/primeflex/primeflex.scss";
+
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url(../fonts/JetBrains/JetBrainsMono.ttf) format("truetype-variations");
+    font-style: normal;
+    font-weight: 1 999;
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url(../fonts/JetBrains/JetBrainsMono-Italic.ttf) format("truetype-variations");
+    font-style: italic;
+    font-weight: 1 999;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --white: #ffffff;
+    --white-soft: #f8f8f8;
+    --white-mute: #f2f2f2;
+
+    --black: #181818;
+    --black-soft: #222222;
+    --black-mute: #282828;
+    --black-mute2x: #3a3a3a;
+
+    --gray: #3f3f3f;
+    --gray-soft: #4e4e4e;
+    --gray-mute: #5c5c5c;
+
+    --accent-hl: #6affa1;
+    --accent: #1cdb63;
+    --accent-soft: #00ff5e;
+    --accent-mute: #0e692f;
+    --accent-tr: rgba(28, 217, 97, 0.5);
+
+    --indigo: #2c3e50;
+
+    --divider-light-1: rgba(60, 60, 60, 0.29);
+    --divider-light-2: rgba(60, 60, 60, 0.12);
+    --divider-dark-1: rgba(84, 84, 84, 0.65);
+    --divider-dark-2: rgba(84, 84, 84, 0.48);
+
+    --text-light-1: var(--indigo);
+    --text-light-2: rgba(60, 60, 60, 0.66);
+    --text-dark-1: var(--white);
+    --text-dark-2: #ebebeba3;
+    font-family: "JetBrains Mono";
+}
+
+::selection {
+    background-color: var(--accent-tr);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+body {
+    background-color: var(--black);
+    color: var(--text-dark-2);
+    transition:
+        background-color 0.3s ease-in-out,
+        color 0.3s ease-in-out;
+    line-height: 1.6;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #2c2c2c;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 10px;
+    border: 3px solid #2c2c2c;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #777;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0;
+}
+
+h1,
+h2,
+a {
+    color: var(--accent);
+}
+
+a {
+    transition: 0.2s ease-in-out;
+}
+
+a:visited {
+    color: var(--accent-mute);
+}
+
+a:hover {
+    color: var(--accent-hl);
+    text-shadow: 0 0 3px var(--accent-soft);
+}
+
+.bg-color {
+    background-color: var(--black);
+}
+
+.bg-color-mute {
+    background-color: var(--black-mute);
+}
+
+.bg-color-soft {
+    background-color: var(--black-soft);
+}
+
+.c-accent {
+    color: var(--accent);
+}
+
+.accent-shadow-text {
+    text-shadow: 0 0 5px var(--accent-soft);
+}
+
+.hover-accent-shadow-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 rgba(0, 0, 0, 0);
+}
+
+.hover-accent-shadow-box:hover {
+    box-shadow: 0 0 10px var(--accent-mute);
+}
+
+.hover-accent-shadow-box:hover::before {
+    box-shadow: inset 0 0 10px var(--accent-mute);
+}
+
+.inner-shadow {
+    box-shadow: inset 1px 2px 5px #0000002c;
+}
+
+button {
+    cursor: pointer;
+    outline: none;
+    background-color: transparent;
+    transition: 0.2s ease-in-out;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+button:hover,
+button:focus,
+.hover-accent:hover {
+    transition: 0.2s ease-in-out;
+    border: 1px solid var(--accent-hl);
+    color: var(--accent-hl);
+    text-shadow: 0 0 3px var(--accent);
+}
+
+button:hover,
+button:focus,
+.hover-accent-shadow-box {
+    position: relative;
+}
+
+button:hover,
+button:focus,
+.accent-shadow-box {
+    box-shadow: 0 0 5px var(--accent-soft);
+}
+
+button:not(.inverted):hover::before,
+button:not(.inverted):focus::before {
+    content: "";
+    position: absolute;
+    transition: 0.2s ease-in-out;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 8px;
+    box-shadow: inset 0 0 5px var(--accent-soft);
+}
+
+button.inverted {
+    color: var(--black-mute);
+    border: none;
+    background-color: var(--accent);
+}
+
+button.inverted:hover {
+    color: var(--gray-soft);
+}
+
+label {
+    cursor: pointer;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input:not([type="checkbox"]):not([type="radio"]),
+select {
+    font-family: "JetBrains Mono";
+    transition: all 0.2s ease-in-out;
+    background-color: var(--black-mute);
+    color: var(--text-dark-1);
+    outline: none;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+input:hover:not(:focus),
+select:hover {
+    cursor: pointer;
+    background-color: var(--black-soft);
+}
+
+input:focus,
+select:focus {
+    background-color: var(--black-mute2x);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    appearance: none;
+    position: relative;
+    padding-right: 20px;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    translate: -0% -90%;
+    width: 15px;
+    height: 15px;
+    border-radius: 2px;
+    background-color: var(--black-mute);
+    transition: 0.1s ease;
+}
+
+input[type="checkbox"]:checked::before {
+    background-color: var(--accent);
+    background-image: url("../img/check.svg");
+    background-position: 40%;
+    box-shadow: 0 0 5px var(--accent-soft);
+}
+
+input[type="radio"]::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    translate: -0% -90%;
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    background-color: var(--black-mute);
+    transition: 0.1s ease;
+}
+
+input[type="radio"]:checked::before {
+    background-color: var(--accent);
+    box-shadow: 0 0 5px var(--accent-soft);
+}
