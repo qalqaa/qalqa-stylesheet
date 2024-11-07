@@ -1,0 +1,7 @@
+{
+  "name": "qalqa stylesheet",
+  "version": "0.0.1",
+  "dependencies": {
+    "primeflex": "^3.3.1"
+  }
+}

@@ -1,4 +1,4 @@
-@import "../../../node_modules/primeflex/primeflex.scss";
+@import "/node_modules/primeflex/primeflex.css";
 
 @font-face {
     font-family: "JetBrains Mono";
@@ -160,6 +160,7 @@ a:hover {
 }
 
 button {
+    font-family: "JetBrains Mono";
     cursor: pointer;
     outline: none;
     background-color: transparent;
