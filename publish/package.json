@@ -1,8 +1,20 @@
 {
   "name": "qalqa-stylesheet",
-  "version": "0.1.1",
+  "version": "0.1.4",
   "description": "small stylesheet for my projects, i hate css :/",
   "author": "qalqa",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qalqaa/qalqa-stylesheet.git"
+  },
+  "keywords": [
+    "css",
+    "stylesheet",
+    "utility"
+  ],
+  "license": "MIT",
+  "main": "main.css",
+  "style": "main.css",
   "dependencies": {
     "primeflex": "^3.3.1"
   }
