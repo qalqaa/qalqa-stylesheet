@@ -1,6 +1,6 @@
 {
   "name": "qalqa-stylesheet",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "small stylesheet for my projects, i hate css :/",
   "author": "qalqa",
   "repository": {
@@ -16,6 +16,7 @@
   "main": "main.css",
   "style": "main.css",
   "dependencies": {
+    "normalize.css": "^8.0.1",
     "primeflex": "^3.3.1"
   }
 }

@@ -1,9 +1,0 @@
-{
-  "name": "qalqa-stylesheet",
-  "version": "0.1.0",
-  "description": "small stylesheet for my projects, i hate css :/",
-  "author": "qalqa",
-  "dependencies": {
-    "primeflex": "^3.3.1"
-  }
-}
