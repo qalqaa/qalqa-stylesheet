@@ -5,9 +5,6 @@
 * Browsers: last 4 version
 */
 
-@import "/node_modules/normalize.css/normalize.css";
-@import "/node_modules/primeflex/primeflex.css";
-
 /* FONTS IMPORTS */
 @font-face {
     font-family: "JetBrains Mono";
@@ -55,7 +52,7 @@ body {
     --accent-dr-soft: #00ff5e;
     --accent-dr-mute: #0e692f;
     --accent-dr-tr: rgba(28, 217, 97, 0.5);
-    
+
     --accent-li-hl: #5edf8d;
     --accent-li: #1cdb63;
     --accent-li-soft: #00c749;
@@ -101,13 +98,6 @@ body {
     --font-family: "JetBrains Mono";
     --color-scheme: "dark";
 }
-
-/* main {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 0 30vw;
-} */
 
 body {
     font-family: var(--font-family);
@@ -326,7 +316,7 @@ select {
     border-radius: 10px;
 }
 
-input:hover:not(:focus),
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):hover:not(:focus),
 select:hover,
 textarea:hover,
 input[type="checkbox"]:hover:not(:checked)::before,
