@@ -35,8 +35,9 @@ body {
 
 :root {
     --white: #ffffff;
-    --white-soft: #f8f8f8;
-    --white-mute: #f2f2f2;
+    --white-soft: #ebebeb;
+    --white-mute: #f4f4f4;
+    --white-mute2x: #dbdbdb;
 
     --black: #181818;
     --black-soft: #222222;
@@ -48,11 +49,23 @@ body {
     --gray-mute: #5c5c5c;
     --gray-mute2x: #ebebeba3;
 
-    --accent-hl: #6affa1;
-    --accent: #1cdb63;
-    --accent-soft: #00ff5e;
-    --accent-mute: #0e692f;
-    --accent-tr: rgba(28, 217, 97, 0.5);
+    --accent-dr-hl: #6affa1;
+    --accent-dr: #1cdb63;
+    --accent-dr-soft: #00ff5e;
+    --accent-dr-mute: #0e692f;
+    --accent-dr-tr: rgba(28, 217, 97, 0.5);
+    
+    --accent-li-hl: #5edf8d;
+    --accent-li: #1cdb63;
+    --accent-li-soft: #00c749;
+    --accent-li-mute: #08421d;
+    --accent-li-tr: rgba(24, 161, 74, 0.5);
+
+    --accent-hl: var(--accent-dr-hl);
+    --accent: var(--accent-dr);
+    --accent-soft: var(--accent-dr-soft);
+    --accent-mute: var(--accent-dr-mute);
+    --accent-tr: var(--accent-dr-tr);
 
     --error: #ff5050;
 
@@ -77,10 +90,13 @@ body {
     --bg-comp-light: var(--white-mute);
     --bg-hover-dark: var(--black-soft);
     --bg-hover-light: var(--white-soft);
+    --bg-focus-dark: var(--black-mute2x);
+    --bg-focus-light: var(--white-mute2x);
 
     --bg: var(--bg-dark);
     --bg-comp: var(--bg-comp-dark);
     --bg-hover: var(--bg-hover-dark);
+    --bg-focus: var(--bg-focus-dark);
     --font-family: "JetBrains Mono";
     --color-scheme: "dark";
 }
@@ -94,8 +110,8 @@ main {
 
 body {
     font-family: var(--font-family);
-    background-color: var(--bg-dark);
-    color: var(--text-dark-2);
+    background-color: var(--bg);
+    color: var(--text-color-2);
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
@@ -321,7 +337,7 @@ input[type="radio"]:hover:not(:checked)::before {
 input:not([type="checkbox"]):not([type="radio"]):focus,
 select:focus,
 textarea:focus {
-    background-color: var(--black-mute2x);
+    background-color: var(--bg-focus);
 }
 
 /* INPUT RADIO & CHECKBOX */
@@ -471,4 +487,21 @@ textarea {
     padding: 5px 10px;
     border-radius: 10px;
     min-height: 5rem;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --text-color-1: var(--text-light-1);
+        --text-color-2: var(--text-light-2);
+        --bg: var(--bg-light);
+        --bg-comp: var(--bg-comp-light);
+        --bg-hover: var(--bg-hover-light);
+        --bg-focus: var(--bg-focus-light);
+
+        --accent-hl: var(--accent-li-hl);
+        --accent: var(--accent-li);
+        --accent-soft: var(--accent-li-soft);
+        --accent-mute: var(--accent-li-mute);
+        --accent-tr: var(--accent-li-tr);
+    }
 }
