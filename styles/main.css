@@ -1,5 +1,6 @@
 @import "/node_modules/primeflex/primeflex.css";
 
+/* FONTS IMPORTS */
 @font-face {
     font-family: "JetBrains Mono";
     src: url(../fonts/JetBrains/JetBrainsMono.ttf) format("truetype-variations");
@@ -14,6 +15,7 @@
     font-weight: 1 999;
 }
 
+/* GLOBAL STYLES */
 html {
     scroll-behavior: smooth;
 }
@@ -31,12 +33,15 @@ html {
     --gray: #3f3f3f;
     --gray-soft: #4e4e4e;
     --gray-mute: #5c5c5c;
+    --gray-mute2x: #ebebeba3;
 
     --accent-hl: #6affa1;
     --accent: #1cdb63;
     --accent-soft: #00ff5e;
     --accent-mute: #0e692f;
     --accent-tr: rgba(28, 217, 97, 0.5);
+
+    --error: #ff5050;
 
     --indigo: #2c3e50;
 
@@ -46,86 +51,73 @@ html {
     --divider-dark-2: rgba(84, 84, 84, 0.48);
 
     --text-light-1: var(--indigo);
-    --text-light-2: rgba(60, 60, 60, 0.66);
+    --text-light-2: var(--black-mute2x);
     --text-dark-1: var(--white);
-    --text-dark-2: #ebebeba3;
-    font-family: "JetBrains Mono";
-}
+    --text-dark-2: var(--gray-mute2x);
 
-::selection {
-    background-color: var(--accent-tr);
+    --text-color-1: var(--text-dark-1);
+    --text-color-2: var(--text-dark-2);
+
+    --bg-dark: var(--black);
+    --bg-light: var(--white);
+    --bg-comp-dark: var(--black-mute);
+    --bg-comp-light: var(--white-mute);
+    --bg-hover-dark: var(--black-soft);
+    --bg-hover-light: var(--white-soft);
+
+    --bg: var(--bg-dark);
+    --bg-comp: var(--bg-comp-dark);
+    --bg-hover: var(--bg-hover-dark);
+    --font-family: "JetBrains Mono";
 }
 
 main {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding: 0 30vw;
 }
 
 body {
-    background-color: var(--black);
+    font-family: var(--font-family);
+    background-color: var(--bg-dark);
     color: var(--text-dark-2);
-    transition:
-        background-color 0.3s ease-in-out,
-        color 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     line-height: 1.6;
 }
 
 ::-webkit-scrollbar {
-    width: 12px;
+    width: 5px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #2c2c2c;
+    background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #555;
+    background-color: var(--gray-soft);
     border-radius: 10px;
-    border: 3px solid #2c2c2c;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #777;
+    background-color: var(--gray-mute);
 }
 
-h1,
-h2,
-h3,
-h4,
-p {
-    margin: 0;
+::selection {
+    background-color: var(--accent-tr);
 }
 
-h1,
-h2,
-a {
-    color: var(--accent);
-}
-
-a {
-    transition: 0.2s ease-in-out;
-}
-
-a:visited {
-    color: var(--accent-mute);
-}
-
-a:hover {
-    color: var(--accent-hl);
-    text-shadow: 0 0 3px var(--accent-soft);
-}
-
+/* CUSTOM STYLES */
 .bg-color {
-    background-color: var(--black);
+    background-color: var(--bg);
 }
 
 .bg-color-mute {
-    background-color: var(--black-mute);
+    background-color: var(--bg-comp);
 }
 
 .bg-color-soft {
-    background-color: var(--black-soft);
+    background-color: var(--bg-hover);
 }
 
 .c-accent {
@@ -159,8 +151,40 @@ a:hover {
     box-shadow: inset 1px 2px 5px #0000002c;
 }
 
-button {
-    font-family: "JetBrains Mono";
+/* TITELS & LINKS */
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0;
+}
+
+h1,
+h2,
+a {
+    color: var(--accent);
+}
+
+a {
+    outline: none;
+    transition: 0.2s ease-in-out;
+    text-decoration: none;
+}
+
+a:visited {
+    color: var(--accent-mute);
+}
+
+a:hover,
+a:focus {
+    color: var(--accent-hl);
+    text-shadow: 0 0 3px var(--accent-soft);
+}
+
+/* BUTTON */
+button,
+input::-webkit-file-upload-button {
     cursor: pointer;
     outline: none;
     background-color: transparent;
@@ -173,23 +197,19 @@ button {
 
 button:hover,
 button:focus,
+input::-webkit-file-upload-button:hover,
 .hover-accent:hover {
     transition: 0.2s ease-in-out;
     border: 1px solid var(--accent-hl);
     color: var(--accent-hl);
     text-shadow: 0 0 3px var(--accent);
+    box-shadow: 0 0 5px var(--accent-soft);
 }
 
 button:hover,
 button:focus,
 .hover-accent-shadow-box {
     position: relative;
-}
-
-button:hover,
-button:focus,
-.accent-shadow-box {
-    box-shadow: 0 0 5px var(--accent-soft);
 }
 
 button:not(.inverted):hover::before,
@@ -205,20 +225,24 @@ button:not(.inverted):focus::before {
     box-shadow: inset 0 0 5px var(--accent-soft);
 }
 
-button.inverted {
-    color: var(--black-mute);
-    border: none;
+button.inverted,
+input::-webkit-file-upload-button {
+    color: var(--bg-comp);
+    border: 1px solid transparent;
     background-color: var(--accent);
 }
 
-button.inverted:hover {
+button.inverted:hover,
+input::-webkit-file-upload-button:hover {
     color: var(--gray-soft);
 }
 
+/* LABEL */
 label {
     cursor: pointer;
 }
 
+/* INPUT & SELECT */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -226,10 +250,10 @@ input::-webkit-inner-spin-button {
 
 input:not([type="checkbox"]):not([type="radio"]),
 select {
-    font-family: "JetBrains Mono";
+    min-height: 23.5px;
     transition: all 0.2s ease-in-out;
-    background-color: var(--black-mute);
-    color: var(--text-dark-1);
+    background-color: var(--bg-comp);
+    color: var(--text-color-1);
     outline: none;
     border: none;
     padding: 5px 10px;
@@ -237,16 +261,21 @@ select {
 }
 
 input:hover:not(:focus),
-select:hover {
+select:hover,
+textarea:hover,
+input[type="checkbox"]:hover:not(:checked)::before,
+input[type="radio"]:hover:not(:checked)::before {
     cursor: pointer;
-    background-color: var(--black-soft);
+    background-color: var(--bg-hover);
 }
 
-input:focus,
-select:focus {
+input:not([type="checkbox"]):not([type="radio"]):focus,
+select:focus,
+textarea:focus {
     background-color: var(--black-mute2x);
 }
 
+/* INPUT RADIO & CHECKBOX */
 input[type="checkbox"],
 input[type="radio"] {
     appearance: none;
@@ -254,7 +283,8 @@ input[type="radio"] {
     padding-right: 20px;
 }
 
-input[type="checkbox"]::before {
+input[type="checkbox"]::before,
+input[type="radio"]::before {
     content: "";
     position: absolute;
     top: 0;
@@ -262,9 +292,12 @@ input[type="checkbox"]::before {
     translate: -0% -90%;
     width: 15px;
     height: 15px;
-    border-radius: 2px;
-    background-color: var(--black-mute);
+    background-color: var(--bg-comp);
     transition: 0.1s ease;
+}
+
+input[type="checkbox"]::before {
+    border-radius: 2px;
 }
 
 input[type="checkbox"]:checked::before {
@@ -275,19 +308,84 @@ input[type="checkbox"]:checked::before {
 }
 
 input[type="radio"]::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    translate: -0% -90%;
-    width: 15px;
-    height: 15px;
     border-radius: 100%;
-    background-color: var(--black-mute);
-    transition: 0.1s ease;
 }
 
 input[type="radio"]:checked::before {
     background-color: var(--accent);
     box-shadow: 0 0 5px var(--accent-soft);
+}
+
+/* INPUT DATE & TIME */
+::-webkit-calendar-picker-indicator {
+    appearance: none;
+    opacity: 0;
+    cursor: pointer;
+}
+
+input[type="date"],
+input[type="time"] {
+    position: relative;
+}
+
+input[type="date"]::before,
+input[type="time"]::before {
+    content: "";
+    position: absolute;
+    top: 25%;
+    right: 10px;
+    width: 16px;
+    height: 16px;
+    filter: invert(0.5);
+}
+
+input[type="date"]::before {
+    background-image: url("../img/calendar.svg");
+}
+
+input[type="time"]::before {
+    background-image: url("../img/clock.svg");
+}
+
+input[type="range"] {
+    accent-color: var(--accent);
+}
+
+input:user-invalid {
+    box-shadow: 0 0px 10px var(--error);
+}
+
+/* INPUTBOX */
+
+.input-box {
+    position: relative;
+    padding-top: 1rem;
+}
+
+.input-box:has(input) label {
+    position: absolute;
+    transition: 0.2s ease-in-out;
+    pointer-events: none;
+    transform: translateX(0%) translateY(-100%);
+}
+
+.input-box:has(input:not(:focus):placeholder-shown) label {
+    transform: translatex(10%) translateY(12%);
+}
+
+.input-box:has(input[required]) label::after {
+    content: "*";
+    color: var(--error);
+}
+
+textarea {
+    color: var(--text-color-1);
+    background-color: var(--bg-comp);
+    transition: 0.2s ease-in-out;
+    resize: none;
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    min-height: 5rem;
 }

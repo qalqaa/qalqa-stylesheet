@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="styles/normalize.css" />
+    <link rel="stylesheet" href="styles/main.css" />
     <title>qalqa stylesheet</title>
   </head>
   <body>
@@ -15,7 +16,10 @@
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
       <a href="#">Link</a>
       <a href="/">Link visited</a>
-      <input placeholder="input" type="text" name="" id="" />
+      <div class="input-box">
+        <label for="text">Text input</label>
+        <input required placeholder="" type="text" name="" id="text" />
+      </div>
       <div>
         <label for="checkbox">Label</label>
         <input type="checkbox" name="" id="checkbox" />
@@ -35,8 +39,10 @@
       <input type="time" />
       <input placeholder="email" type="email" />
       <input type="file" />
-      <input placeholder="password" type="password" />
+      <input required placeholder="password" type="password" />
       <input placeholder="number" type="number" />
+      <input type="range" />
+      <textarea required name="" id=""></textarea>
       <button>click me</button>
       <button class="inverted">inverted</button>
     </main>
