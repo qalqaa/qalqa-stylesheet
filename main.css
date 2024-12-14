@@ -53,8 +53,8 @@ body {
     --accent-dr-mute: #0e692f;
     --accent-dr-tr: rgba(28, 217, 97, 0.5);
 
-    --accent-li-hl: #5edf8d;
-    --accent-li: #1cdb63;
+    --accent-li-hl: #7ed59e;
+    --accent-li: #95ffbc;
     --accent-li-soft: #00c749;
     --accent-li-mute: #08421d;
     --accent-li-tr: rgba(24, 161, 74, 0.5);
@@ -494,5 +494,62 @@ textarea {
         --accent-soft: var(--accent-li-soft);
         --accent-mute: var(--accent-li-mute);
         --accent-tr: var(--accent-li-tr);
+    }
+
+    h1 {
+        color: var(--text-color-1);
+    }
+
+    h2 {
+        color: var(--text-color-1);
+    }
+
+    a {
+        font-weight: 700;
+    }
+
+    a:hover {
+        text-shadow: none;
+    }
+
+    button.inverted,
+    input::-webkit-file-upload-button {
+        color: var(--text-color-1);
+        font-weight: 700;
+        background-color: var(--accent);
+    }
+
+    button.inverted:hover,
+    button.inverted:focus,
+    input::-webkit-file-upload-button:hover,
+    input::-webkit-file-upload-button:focus {
+        box-shadow: none;
+    }
+    button.inverted:hover,
+    button.inverted:focus,
+    input::-webkit-file-upload-button:hover,
+    input::-webkit-file-upload-button:focus {
+        color: var(--text-color-1);
+        background-color: var(--accent-hl);
+    }
+
+    button.inverted:hover::before,
+    button.inverted:focus::before,
+    button:not(.inverted):hover::before {
+        content: none;
+    }
+
+    button:not(.inverted) {
+        color: var(--text-color-1);
+        font-weight: 700;
+        border: 2px solid var(--accent);
+    }
+
+    button:not(.inverted):hover,
+    button:not(.inverted):focus {
+        box-shadow: none;
+        text-shadow: none;
+        border: 2px solid var(--accent-hl);
+        color: var(--accent-hl);
     }
 }
