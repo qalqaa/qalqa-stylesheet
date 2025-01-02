@@ -8,15 +8,7 @@
 /* FONTS IMPORTS */
 @font-face {
     font-family: "JetBrains Mono";
-    src: url(/fonts/JetBrains/JetBrainsMono.ttf) format("truetype-variations");
-    font-style: normal;
-    font-weight: 1 999;
-}
-
-@font-face {
-    font-family: "JetBrains Mono";
-    src: url(/fonts/JetBrains/JetBrainsMono-Italic.ttf) format("truetype-variations");
-    font-style: italic;
+    src: url(./fonts/JetBrains/JetBrainsMono.ttf) format("truetype-variations");
     font-weight: 1 999;
 }
 
